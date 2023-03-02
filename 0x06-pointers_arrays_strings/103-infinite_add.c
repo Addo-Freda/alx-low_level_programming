@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 /**
  * infinite_add - A function that adds two numbers
  * @n1: first number
@@ -12,22 +13,20 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	int len1 = strlen(n1);
 	int len2 = strlen(n2);
        	int max_len = (len1 > len2) ? len1 : len2;
+	int carry = 0;
+        int i = len1 - 1;
+        int j = len2 - 1;
+        int k = max_len;
+	int d1 = (i >= 0) ? n1[i] - '0' : 0;
+	int d2 = (j >= 0) ? n2[j] - '0' : 0;
+	int sum = d1 + d2 + carry;
 	
 	if (max_len + 1 > size_r)
 	{
 	return (0);
 	}
-	int carry = 0;
-	int i = lenl - 1;
-	int j = len2 - 1;
-	int k = max_len;
-
 	while (i >= 0 || j >= 0)
 	{
-	int d1 = (i >= 0) ? n1[i] - '0' : 0;
-	int d2 = (j >= 0) ? n2[j] - '0' : 0;
-	int sum = d1 + d2 + carry;
-
 	carry = sum / 10;
 	r[k] = sum % 10 + '0';
 	i--;

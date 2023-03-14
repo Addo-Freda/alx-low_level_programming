@@ -1,13 +1,21 @@
 #include "main.h"
 
 /**
-  * mul - Multiplies two integers
-  * @a: The first number to multiply
-  * @b: The second number to multiply with first number
-  *
-  * Return: The result of multiplication between x param and y param
-  */
-int mul(int a, int b)
+ * *_memcpy - copies memory area
+ * @dest: destination memory area
+ * @src: memory area to copy from
+ * @n: number of bytes to copy
+ *
+ * Return: pointer to dest
+ */
+char *_memcpy(char *dest, char *src, unsigned int n)
 {
-	return (a * b);
+	unsigned int i;
+
+	for (i = 0; i < n; i++)
+	{
+		dest[i] = src[i];
+	}
+
+	return (dest);
 }
